@@ -1,0 +1,14 @@
+{
+  "name": "sonet.api",
+  "version": "0.1.0",
+  "description": "SoNet API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Vadim Prokopchuk & Dianka Levchenko",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
