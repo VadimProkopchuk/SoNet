@@ -4,11 +4,12 @@
   "description": "SoNet API",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "author": "Vadim Prokopchuk & Dianka Levchenko",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.10.3"
   }
 }
