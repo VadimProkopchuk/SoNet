@@ -37,7 +37,7 @@ const Chat = () => {
 
     return (
         <div>
-            <Grid container component={Paper} className={classes.chatSection}>
+            <Grid container component={Paper} spacing={1} className={classes.chatSection}>
                 <Grid item xs={3} className={classes.borderRight500}>
                     <List>
                         <ListItem button key="RemySharp">
@@ -48,9 +48,6 @@ const Chat = () => {
                         </ListItem>
                     </List>
 
-                    {/*<Divider /> <Grid item xs={12} style={{padding: '10px'}}>
-                        <TextField id="outlined-basic-email" label="Search" variant="outlined" fullWidth />
-                    </Grid>*/ }
                     <Divider />
                     <List>
                         <ListItem button key="RemySharp">
@@ -108,11 +105,11 @@ const Chat = () => {
                         </ListItem>
                     </List>
                     <Divider />
-                    <Grid container style={{padding: '20px'}}>
+                    <Grid container style={{ padding: "1rem" }}>
                         <Grid item xs={11}>
                             <TextField label="Type Something" fullWidth multiline />
                         </Grid>
-                        <Grid xs={1} align="right">
+                        <Grid item xs={1} align="right">
                             <Fab color="secondary" aria-label="add"><SendIcon /></Fab>
                         </Grid>
                     </Grid>
