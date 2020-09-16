@@ -1,5 +1,6 @@
 import React from "react";
+import Chat from "../../components/Messages/Chat/Chat";
 
 export default () => (
-    <h3>Messages page</h3>
+    <Chat />
 );
