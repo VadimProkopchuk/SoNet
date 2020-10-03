@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  node_api:
+    container_name: node-api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    volumes:
+      - '/api/node_modules'
+    ports:
+    - 4000:4000
+      
+  react_ui:
+    container_name: react-ui
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    volumes:
+      - '/app/node_modules'
+    ports:
+    - 3000:3000
+    depends_on:
+      - node_api
+    stdin_open: true
+
