@@ -1,4 +1,4 @@
 module.exports = {
-    SECRET: 'secret',
-    EXPIRES_IN: '24h'
+    SECRET: process.env.AUTH_JWT_SECRET,
+    EXPIRES_IN: process.env.AUTH_JWT_EXPIRES_IN
 }

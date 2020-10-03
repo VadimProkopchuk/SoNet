@@ -10,6 +10,7 @@ services:
       - '/api/node_modules'
     ports:
     - 4000:4000
+    env_file: ENVIRONMENT
       
   react_ui:
     container_name: react-ui
