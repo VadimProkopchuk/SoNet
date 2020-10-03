@@ -1,3 +1,4 @@
+ENV=development
 
 API_PORT=4000
 
