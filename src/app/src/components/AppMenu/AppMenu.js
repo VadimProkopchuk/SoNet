@@ -8,7 +8,6 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import Badge from "@material-ui/core/Badge";
 import Divider from "@material-ui/core/Divider";
 
 import HomeIcon from "@material-ui/icons/Home";
@@ -16,7 +15,6 @@ import MailIcon from "@material-ui/icons/Mail";
 import ContactMailIcon from "@material-ui/icons/ContactMail";
 import SettingsIcon from "@material-ui/icons/Settings";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import {Button} from "@material-ui/core";
 
 import AppListItemLink from "../AppListItemLink/AppListItemLink";
 

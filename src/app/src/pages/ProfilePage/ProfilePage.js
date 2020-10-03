@@ -137,7 +137,7 @@ export default () => {
                                     <GridList cols={3}>
                                         {tileData.map((tile) => (
                                             <GridListTile key={tile.img} cols={tile.cols || 1}>
-                                                <img src={tile.img} />
+                                                <img src={tile.img} alt="Test1" />
                                             </GridListTile>
                                         ))}
                                     </GridList>
