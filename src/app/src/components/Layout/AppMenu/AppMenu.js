@@ -16,7 +16,7 @@ import ContactMailIcon from "@material-ui/icons/ContactMail";
 import SettingsIcon from "@material-ui/icons/Settings";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
-import AppListItemLink from "../AppListItemLink/AppListItemLink";
+import AppListItemLink from "./AppListItemLink/AppListItemLink";
 
 const drawerWidth = 240;
 const useStyles = makeStyles(() => ({

@@ -17,9 +17,9 @@ export  default (props) => {
     );
 
     return (
-            <ListItem button component={CustomLink}>
-                <ListItemIcon>{icon}</ListItemIcon>
-                <ListItemText primary={primary} />
-            </ListItem>
+        <ListItem button component={CustomLink}>
+            <ListItemIcon>{icon}</ListItemIcon>
+            <ListItemText primary={primary} />
+        </ListItem>
     );
 }
