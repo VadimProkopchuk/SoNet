@@ -16,7 +16,7 @@ import ContactMailIcon from "@material-ui/icons/ContactMail";
 import SettingsIcon from "@material-ui/icons/Settings";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
-import AppListItemLink from "./AppListItemLink/AppListItemLink";
+import ListItemLink from "../../UI/ListItemLink/ListItemLink";
 
 const drawerWidth = 240;
 const useStyles = makeStyles(() => ({
@@ -45,10 +45,10 @@ export default () => {
             <Toolbar />
             <div className={classes.drawerContainer}>
                 <List>
-                    <AppListItemLink button component={Link} to="/" primary="Profile" icon={ <HomeIcon /> }/>
-                    <AppListItemLink button component={Link} to="/messages" primary="Messages" icon={ <MailIcon /> }/>
-                    <AppListItemLink button component={Link} to="/contacts" primary="Contacts" icon={ <ContactMailIcon /> }/>
-                    <AppListItemLink button component={Link} to="/settings" primary="Settings" icon={ <SettingsIcon /> }/>
+                    <ListItemLink button component={Link} to="/" primary="Profile" icon={ <HomeIcon /> }/>
+                    <ListItemLink button component={Link} to="/messages" primary="Messages" icon={ <MailIcon /> }/>
+                    <ListItemLink button component={Link} to="/contacts" primary="Contacts" icon={ <ContactMailIcon /> }/>
+                    <ListItemLink button component={Link} to="/settings" primary="Settings" icon={ <SettingsIcon /> }/>
 
                     <Divider />
 

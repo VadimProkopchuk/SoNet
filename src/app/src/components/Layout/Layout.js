@@ -1,8 +1,8 @@
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppHeader from "./AppHeader/AppHeader";
-import AppMenu from "./AppMenu/AppMenu";
+import DrawerMenu from "./DrawerMenu/DrawerMenu";
 import Toolbar from "@material-ui/core/Toolbar";
-import AppRouter from "./AppRouter/AppRouter";
+import Routes from "./Routes";
 import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 
@@ -23,10 +23,10 @@ export default () => {
         <div className={classes.root}>
             <CssBaseline />
             <AppHeader />
-            <AppMenu />
+            <DrawerMenu />
             <main className={classes.content}>
                 <Toolbar />
-                <AppRouter />
+                <Routes />
             </main>
         </div>
     );

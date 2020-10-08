@@ -1,13 +1,13 @@
-import ContactsPage from "./ContactsPage/ContactsPage";
-import MessagesPage from "./MessagesPage/MessagesPage";
-import ProfilePage from "./ProfilePage/ProfilePage";
-import SettingsPage from "./SettingsPage/SettingsPage";
-import NotFoundPage from "./NotFoundPage/NotFoundPage";
+import Contacts from "./Contacts/Contacts";
+import Messages from "./Messages/Messages";
+import Profile from "./Profile/Profile";
+import Settings from "./Settings/Settings";
+import NotFound from "./NotFound/NotFound";
 
 export {
-    ContactsPage,
-    MessagesPage,
-    ProfilePage,
-    SettingsPage,
-    NotFoundPage
+    Contacts,
+    Messages,
+    Profile,
+    Settings,
+    NotFound
 }
