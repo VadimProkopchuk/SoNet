@@ -1,4 +1,5 @@
 import React from "react";
+import Radium from "radium";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -15,6 +16,21 @@ import CardHeader from "@material-ui/core/CardHeader";
 import IconButton from "@material-ui/core/IconButton";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
+
+
+const fontStyles = {
+    color: '#8A0160'
+}
+
+const buttonStyles = {
+    color: 'black',
+    background: '#F5DEB3',
+    ':hover': {
+        background: '#D2B48C',
+        border: '1px solid #aaa'
+    }
+
+}
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -33,6 +49,10 @@ const useStyles = makeStyles((theme) => ({
         paddingTop: '56.25%', // 16:9
     },
 }));
+
+const profilePhotoStyles = {
+
+}
 
 const tileData = [
     {
@@ -57,14 +77,15 @@ const tileData = [
     },
 ]
 
-export default () => {
+
+const Profile = () => {
     const classes = useStyles();
     return (
         <Grid container spacing={2}>
             <Grid item xs={3}>
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
-                        <Card>
+                        <Card style={ profilePhotoStyles }>
                             <CardActionArea>
                                 <CardMedia
                                     component="img"
@@ -84,10 +105,10 @@ export default () => {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button size="small" color="primary">
+                                <Button size="small" style={buttonStyles} >
                                     Write Message
                                 </Button>
-                                <Button size="small" color="primary">
+                                <Button size="small" style={buttonStyles}>
                                     Add to Contacts
                                 </Button>
                             </CardActions>
@@ -114,15 +135,15 @@ export default () => {
                     <Grid item xs={12}>
                         <Card>
                             <CardContent>
-                                <Typography color="textSecondary" gutterBottom>
+                                <Typography color="textSecondary" style={fontStyles} gutterBottom>
                                     Public Information
                                 </Typography>
                                 <Typography variant="body2" component="p">
                                     I love Dianka
                                 </Typography>
                             </CardContent>
-                            <CardActions>
-                                <Button size="small">Learn More</Button>
+                            <CardActions >
+                                <Button size="small" style={fontStyles}>Learn More</Button>
                             </CardActions>
                         </Card>
                     </Grid>
@@ -184,3 +205,5 @@ export default () => {
         </Grid>
     );
 }
+
+export default Radium(Profile)
