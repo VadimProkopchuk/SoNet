@@ -23,12 +23,15 @@ const useStyles = makeStyles(() => ({
     drawer: {
         width: drawerWidth,
         flexShrink: 0,
+
     },
     drawerPaper: {
         width: drawerWidth,
+        backgroundColor: '#FFFFE0',
     },
     drawerContainer: {
         overflow: 'auto',
+
     }
 }));
 
