@@ -7,9 +7,15 @@ import reduxThunk from 'redux-thunk';
 import Layout from "./components/Layout/Layout";
 import rootReducer from "./store/reducers/rootReducer";
 
+const composeEnhancers =
+    typeof window === 'object' &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+        ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
+        : compose;
+
 const store = createStore(
     rootReducer,
-    compose(applyMiddleware(reduxThunk))
+    composeEnhancers(applyMiddleware(reduxThunk))
 );
 
 export default () => (
