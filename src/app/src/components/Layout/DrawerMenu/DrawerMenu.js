@@ -5,9 +5,6 @@ import { Link } from "react-router-dom";
 import Drawer from "@material-ui/core/Drawer";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 
 import HomeIcon from "@material-ui/icons/Home";
@@ -17,6 +14,7 @@ import SettingsIcon from "@material-ui/icons/Settings";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 import ListItemLink from "../../UI/ListItemLink/ListItemLink";
+import {HowToReg, LockOpen} from "@material-ui/icons";
 
 const drawerWidth = 240;
 const useStyles = makeStyles(() => ({
@@ -35,8 +33,28 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-export default () => {
+export default function DrawerMenu({isAuthenticated}) {
     const classes = useStyles();
+
+    let links = (
+        <React.Fragment>
+            <ListItemLink button component={Link} to="/sign-in" primary="Sign In" icon={ <LockOpen /> }/>
+            <ListItemLink button component={Link} to="/signup" primary="Sign Up" icon={ <HowToReg /> }/>
+        </React.Fragment>
+    );
+
+    if (isAuthenticated) {
+        links = (
+            <React.Fragment>
+                <ListItemLink button component={Link} to="/" primary="Profile" icon={ <HomeIcon /> }/>
+                <ListItemLink button component={Link} to="/messages" primary="Messages" icon={ <MailIcon /> }/>
+                <ListItemLink button component={Link} to="/contacts" primary="Contacts" icon={ <ContactMailIcon /> }/>
+                <ListItemLink button component={Link} to="/settings" primary="Settings" icon={ <SettingsIcon /> }/>
+                <Divider />
+                <ListItemLink button component={Link} to="/logout" primary="Log Out" icon={ <ExitToAppIcon /> }/>
+            </React.Fragment>
+        )
+    }
 
     return (
         <Drawer
@@ -47,21 +65,7 @@ export default () => {
             }}>
             <Toolbar />
             <div className={classes.drawerContainer}>
-                <List>
-                    <ListItemLink button component={Link} to="/" primary="Profile" icon={ <HomeIcon /> }/>
-                    <ListItemLink button component={Link} to="/messages" primary="Messages" icon={ <MailIcon /> }/>
-                    <ListItemLink button component={Link} to="/contacts" primary="Contacts" icon={ <ContactMailIcon /> }/>
-                    <ListItemLink button component={Link} to="/settings" primary="Settings" icon={ <SettingsIcon /> }/>
-
-                    <Divider />
-
-                    <ListItem button>
-                        <ListItemIcon>
-                            <ExitToAppIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={'Log Out'} />
-                    </ListItem>
-                </List>
+                <List>{links}</List>
             </div>
         </Drawer>
     );
