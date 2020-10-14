@@ -3,9 +3,10 @@ import AppHeader from "./AppHeader/AppHeader";
 import DrawerMenu from "./DrawerMenu/DrawerMenu";
 import Toolbar from "@material-ui/core/Toolbar";
 import Routes from "./Routes";
-import React from "react";
+import React, {useEffect} from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import {connect} from "react-redux";
+import {autoAuth} from "../../store/actions/authActions";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,7 +18,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Loyout = ({isAuthenticated}) => {
+const Layout = ({autoAuth, isAuthenticated}) => {
+    useEffect(() => {
+        autoAuth();
+    })
+
     const classes = useStyles();
 
     return (
@@ -39,5 +44,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Loyout);
+const mapDispatchToProps = (dispatch) => ({
+    autoAuth: () => dispatch(autoAuth())
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Layout);
 

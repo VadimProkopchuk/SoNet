@@ -10,7 +10,7 @@ export function auth(email, password) {
         const expiresIn = 600;
 
         localStorage.setItem('token', token);
-        localStorage.setItem('expiresIn', new Date(new Date().getTime() + expiresIn*1000).toISOString())
+        localStorage.setItem('expirationDate', new Date(new Date().getTime() + expiresIn*1000).toISOString())
 
         dispatch(authSuccess(token));
         dispatch(autoLogout(expiresIn));
@@ -24,6 +24,24 @@ export function authSuccess(token) {
     }
 }
 
+export function autoAuth() {
+    return dispatch => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            dispatch(logout());
+        } else {
+            const expirationDate = new Date(localStorage.getItem('expirationDate'));
+            if (expirationDate <= new Date()) {
+                dispatch(logout());
+            } else {
+                const expiresIn = (expirationDate.getTime() - new Date().getTime()) / 1000;
+                dispatch(authSuccess(token));
+                dispatch(autoLogout(expiresIn));
+            }
+        }
+    }
+}
+
 export function autoLogout(expiresIn) {
     return dispatch => {
         setTimeout(() => dispatch(logout()), expiresIn * 1000)
@@ -32,7 +50,7 @@ export function autoLogout(expiresIn) {
 
 export function logout() {
     localStorage.removeItem('token');
-    localStorage.removeItem('expiresIn');
+    localStorage.removeItem('expirationDate');
     return {
         type: AUTH_LOGOUT
     }
