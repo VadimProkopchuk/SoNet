@@ -39,7 +39,7 @@ export default function DrawerMenu({isAuthenticated}) {
     let links = (
         <React.Fragment>
             <ListItemLink button component={Link} to="/sign-in" primary="Sign In" icon={ <LockOpen /> }/>
-            <ListItemLink button component={Link} to="/signup" primary="Sign Up" icon={ <HowToReg /> }/>
+            <ListItemLink button component={Link} to="/sign-up" primary="Sign Up" icon={ <HowToReg /> }/>
         </React.Fragment>
     );
 

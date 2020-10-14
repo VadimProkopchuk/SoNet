@@ -1,6 +1,14 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import {Profile, Settings, Messages, Contacts, NotFound, SignIn} from "../../pages";
+import {
+    Profile,
+    Settings,
+    Messages,
+    Contacts,
+    NotFound,
+    SignIn,
+    SignUp
+} from "../../pages";
 import Logout from "../Logout/Logout";
 import Redirect from "react-router-dom/es/Redirect";
 
@@ -21,6 +29,7 @@ export default ({isAuthenticated}) => {
         routes = (
             <Switch>
                 <Route path="/sign-in" component={SignIn} />
+                <Route path="/sign-up" component={SignUp} />
                 <Redirect to={'/sign-in'} />
             </Switch>
         );
