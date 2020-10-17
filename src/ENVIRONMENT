@@ -2,6 +2,8 @@ ENV=development
 
 API_PORT=4000
 
+REACT_APP_API_URL=http://127.0.0.1:4000
+
 MONGO_DB_URL=mongodb+srv://sonet_dev:!QAZ2wsx12@sonetcluster.em6py.azure.mongodb.net/sonet_dev?retryWrites=true&w=majority
 
 AUTH_JWT_SECRET=secret

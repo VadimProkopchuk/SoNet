@@ -11,6 +11,7 @@ import {
 } from "../../pages";
 import Logout from "../Logout/Logout";
 import Redirect from "react-router-dom/es/Redirect";
+import Tests from "../../pages/Tests/Tests";
 
 export default ({isAuthenticated}) => {
     let routes = (
@@ -21,6 +22,7 @@ export default ({isAuthenticated}) => {
             <Route path="/settings" component={Settings} />
             <Route path="/sign-in" component={SignIn} />
             <Route path="/logout" component={Logout} />
+            <Route path="/tests" component={Tests} />
             <Route path="*" component={NotFound} />
         </Switch>
     );
