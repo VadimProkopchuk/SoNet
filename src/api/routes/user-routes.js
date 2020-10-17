@@ -1,12 +1,10 @@
-const AuthService = require("../services/Account/AuthService");
 const { Router } = require('express');
 const userRoutes = Router();
 
-userRoutes.get('/', async (req, res) => {
+const authorize = require('../middlewares/authorize');
 
-    const token = req.headers.authorization.replace('Bearer', '').trim();
-    const user = await AuthService.getUserByToken(token);
-
+userRoutes.get('/', authorize(), async (req, res) => {
+    const { user } = req.context;
     res.send(user);
 });
 
