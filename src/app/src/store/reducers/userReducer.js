@@ -1,7 +1,8 @@
-import {UPDATE_CURRENT_USER} from "../actions/actionTypes";
+import {FETCH_ALL_CONTACTS, UPDATE_CURRENT_USER} from "../actions/actionTypes";
 
 const initialState = {
-    current: null
+    current: null,
+    contacts: []
 }
 
 export default function userReducer(state = initialState, action) {
@@ -11,6 +12,13 @@ export default function userReducer(state = initialState, action) {
                 ...state,
                 current: action.user,
             };
+        }
+
+        case FETCH_ALL_CONTACTS: {
+            return {
+                ...state,
+                contacts: action.contacts
+            }
         }
 
         default: return state;

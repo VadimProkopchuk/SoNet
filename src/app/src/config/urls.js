@@ -6,5 +6,8 @@ export default {
     },
     USER: {
         CURRENT: '/user'
+    },
+    USERS: {
+        ALL: '/users'
     }
 }
