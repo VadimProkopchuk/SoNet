@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {connect} from "react-redux";
 import {addMessage} from "../../store/actions/chatActions";
-import createSocketClient from "../../http/socketClient"
+import createSocketClient from "../../clients/createSocketClient"
 
 const Tests = (props) => {
     const [message, setMessage] = useState([]);
@@ -18,7 +18,7 @@ const Tests = (props) => {
         setSocketClient(client);
 
         return () => client.disconnect();
-    }, []);
+    }, [props.addMessage]);
 
     const sendMessage = () => {
         socketClient.emit('chat_message', message);

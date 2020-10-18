@@ -1,6 +1,6 @@
 import {AUTH_LOGOUT, UPDATE_TOKEN} from "./actionTypes";
 import storage from "../../storage";
-import accountApiClient from "../../http/account/accountApiClient";
+import accountApiClient from "../../clients/account/accountApiClient";
 import {getCurrentUser} from "./userActions";
 
 export function auth(email, password) {

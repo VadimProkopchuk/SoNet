@@ -1,5 +1,5 @@
 import {UPDATE_CURRENT_USER} from "./actionTypes";
-import userApiClient from "../../http/user/userApiClient";
+import userApiClient from "../../clients/user/userApiClient";
 
 export function getCurrentUser() {
     return async dispatch => {
