@@ -1,4 +1,6 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
@@ -8,9 +10,14 @@ import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 
 export default function Contact({ user }) {
+    const history = useHistory();
+    const openProfile = () => {
+        history.push("/" + user.id);
+    }
+
     return (
         <Card>
-            <CardActionArea>
+            <CardActionArea onClick={openProfile}>
                 <CardMedia
                     component="img"
                     alt={user.full_name}
