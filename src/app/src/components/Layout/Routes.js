@@ -10,7 +10,7 @@ import {
     SignUp
 } from "../../pages";
 import Logout from "../Logout/Logout";
-import Redirect from "react-router-dom/es/Redirect";
+import { Redirect } from "react-router-dom";
 import Tests from "../../pages/Tests/Tests";
 
 export default ({isAuthenticated}) => {

@@ -1,6 +1,6 @@
 const AuthService = require("../services/Account/AuthService");
 
-module.exports = function extractContext() {
+const context = () => {
     return async (req, res, next) => {
         const authorization = req.headers.authorization || '';
         const token = authorization.replace('Bearer', '').trim();
@@ -13,4 +13,6 @@ module.exports = function extractContext() {
         req.context = context;
         next();
     }
-}
+};
+
+module.exports = context;

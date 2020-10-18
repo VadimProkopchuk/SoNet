@@ -1,4 +1,4 @@
-module.exports = function authorize() {
+const authorize = () => {
     return (req, res, next) => {
         const { user } = req.context;
 
@@ -10,4 +10,6 @@ module.exports = function authorize() {
             next();
         }
     }
-}
+};
+
+module.exports = authorize;

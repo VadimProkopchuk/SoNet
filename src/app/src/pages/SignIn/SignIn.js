@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {connect} from "react-redux";
 import { auth } from '../../store/actions/authActions';
-import Redirect from "react-router-dom/es/Redirect";
+import { Redirect } from "react-router-dom";
 
 const SignIn = ({isAuthenticated, auth}) => {
     const [login, setLogin] = useState('');
