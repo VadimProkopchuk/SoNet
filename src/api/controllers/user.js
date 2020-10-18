@@ -1,6 +1,7 @@
 const getUser = (req, res) => {
     const { user } = req.context;
-    res.send(user);
+    const { __v, password, ...userData } = user._doc;
+    res.send(userData);
 }
 
 module.exports = {
