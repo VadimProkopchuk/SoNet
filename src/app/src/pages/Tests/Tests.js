@@ -1,30 +1,27 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {connect} from "react-redux";
-import socketIo from "socket.io-client";
 import {addMessage} from "../../store/actions/chatActions";
-import storage from "../../storage/storage";
+import createSocketClient from "../../http/socketClient"
 
 const Tests = (props) => {
     const [message, setMessage] = useState([]);
-    const socketRef = useRef(null);
+    const [socketClient, setSocketClient] = useState(null);
 
     useEffect(() => {
-        socketRef.current = socketIo("http://localhost:4000", {
-            query: {
-                authorization: `Bearer ${storage.token.get()}`
-            }
-        });
+        const client = createSocketClient();
 
-        socketRef.current.on('chat_message', props.addMessage);
-        socketRef.current.on('join_to_chat', props.addMessage);
-        socketRef.current.on('left_from_chat', props.addMessage);
-        socketRef.current.emit('username');
+        client.on('chat_message', props.addMessage);
+        client.on('join_to_chat', props.addMessage);
+        client.on('left_from_chat', props.addMessage);
+        client.emit('username');
 
-        return () => socketRef.current.disconnect();
+        setSocketClient(client);
+
+        return () => client.disconnect();
     }, []);
 
     const sendMessage = () => {
-        socketRef.current.emit('chat_message', message);
+        socketClient.emit('chat_message', message);
         setMessage('');
     }
 
