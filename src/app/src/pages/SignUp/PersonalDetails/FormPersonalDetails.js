@@ -36,7 +36,7 @@ export class PersonalDetails extends Component {
                         fullWidth
                         // maxWidth='sm'
                     >
-                 {/*       <Typography style={{textAlign: 'center',}}> Enter Your Personal Details </Typography>
+                      <Typography style={{textAlign: 'center',}}> Enter Your Personal Details </Typography>
                         <TextField
                             placeholder="Enter Your Password"
                             label="Occupation"
@@ -45,7 +45,7 @@ export class PersonalDetails extends Component {
                             margin="normal"
                             fullWidth
                         />
-                        <br />*/}
+                        <br />
                        {/* <TextField
                             placeholder="Enter Your City"
                             label="City"
