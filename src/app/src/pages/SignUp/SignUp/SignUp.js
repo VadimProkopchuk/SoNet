@@ -1,12 +1,15 @@
-import React, {Component} from "react";
-import FormUserDetails from './FormUserDetails'
-import FormPersonalDetails from './FormPersonalDetails'
-import Confirm from './Confirm'
-import Success from './Success'
+import React, {Component, useState} from "react";
+import UserDetails from "../UserDetails/UserDetails";
+import PersonalDetails from "../PersonalDetails/FormPersonalDetails";
+import Confirm from "../Confirm/Confirm";
+import Success from "../Success/Success";
+import useForm from "../../../hooks/useForm";
+import validateSignUp from "../../../hooks/formValidation";
+import formValidation from "../../../hooks/formValidation";
 
 
+export class SignUp extends Component {
 
-export class UserForm extends Component {
     state = {
         step: 1,
         firstName: '',
@@ -16,6 +19,7 @@ export class UserForm extends Component {
         city: '',
         bio: '',
     }
+
 
     nextStep = () => {
         const {step} = this.state
@@ -31,6 +35,13 @@ export class UserForm extends Component {
         })
     };
 
+ /*   const {myErrors, setErrors} = useState({});
+
+    const confirmAndSubmt = (event) => {
+        event.preventDefault();
+        setErrors(formValidation(this.values));
+        setSubmit(true);
+    }*/
 
     handleChange = input => e => {
         this.setState({[input]: e.target.value})
@@ -43,15 +54,15 @@ export class UserForm extends Component {
         switch (step){
             case 1:
                 return(
-                    < FormUserDetails
-                    nextStep = {this.nextStep}
-                    handleChange = {this.handleChange}
-                    values = {values}
+                    < UserDetails
+                        nextStep = {this.nextStep}
+                        handleChange = {this.handleChange}
+                        values = {values}
                     />
                 )
             case 2:
                 return(
-                    < FormPersonalDetails
+                    < PersonalDetails
                         nextStep = {this.nextStep}
                         prevStep = {this.prevStep}
                         handleChange = {this.handleChange}
@@ -74,4 +85,4 @@ export class UserForm extends Component {
     }
 }
 
-export default UserForm
+export default SignUp;
