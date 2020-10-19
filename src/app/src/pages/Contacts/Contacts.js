@@ -7,20 +7,16 @@ import {fetchAllContacts} from "../../store/actions/userActions";
 const Contacts = (props) => {
     useEffect(() => {
         props.fetchContacts()
-    }, []);
+    });
+
+    const contacts = props.contacts.map(user => (
+        <Grid item xs={2} key={user.id}>
+            <Contact user={user} />
+        </Grid>
+    ));
 
     return (
-        <Grid container spacing={1}>
-            {
-                props.contacts.map(user => {
-                    return (
-                        <Grid item xs={2} key={user.id}>
-                            <Contact user={user} />
-                        </Grid>
-                    )
-                })
-            }
-        </Grid>
+        <Grid container spacing={1}>{contacts}</Grid>
     )
 }
 
