@@ -50,6 +50,7 @@ export default function DrawerMenu({isAuthenticated}) {
                 <ListItemLink button component={Link} to="/messages" primary="Messages" icon={ <MailIcon /> }/>
                 <ListItemLink button component={Link} to="/contacts" primary="Contacts" icon={ <ContactMailIcon /> }/>
                 <ListItemLink button component={Link} to="/settings" primary="Settings" icon={ <SettingsIcon /> }/>
+                <ListItemLink button component={Link} to="/Tests" primary="Tests" />
                 <Divider />
                 <ListItemLink button component={Link} to="/logout" primary="Log Out" icon={ <ExitToAppIcon /> }/>
             </React.Fragment>

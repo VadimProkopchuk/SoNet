@@ -1,2 +1,5 @@
-export const AUTH_SUCCESS = 'AUTH_SUCCESS';
+export const UPDATE_TOKEN = 'UPDATE_TOKEN';
+export const UPDATE_CURRENT_USER = 'UPDATE_CURRENT_USER';
 export const AUTH_LOGOUT = 'AUTH_LOGOUT';
+export const ADD_MESSAGE = 'ADD_MESSAGE';
+export const FETCH_ALL_CONTACTS = 'FETCH_ALL_CONTACTS';

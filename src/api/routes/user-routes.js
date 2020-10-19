@@ -1,8 +1,9 @@
 const { Router } = require('express');
 const userRoutes = Router();
 
-userRoutes.get('/', async (req, res) => {
-    res.send('Ok');
-});
+const authorize = require('../middlewares/authorize');
+const { getUser } = require('../controllers/user');
+
+userRoutes.get('/', authorize(), getUser);
 
 module.exports = userRoutes;

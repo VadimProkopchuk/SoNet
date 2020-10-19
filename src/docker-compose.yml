@@ -8,6 +8,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - '/api/node_modules'
+      - .:/srv
     ports:
     - 4000:4000
     env_file: ENVIRONMENT
@@ -19,9 +20,14 @@ services:
       dockerfile: Dockerfile
     volumes:
       - '/app/node_modules'
+      - .:/srv
     ports:
     - 3000:3000
     depends_on:
       - node_api
     stdin_open: true
+    env_file: ENVIRONMENT
 
+volumes:
+  elkdata:
+    driver: local

@@ -1,19 +1,32 @@
-import React from "react";
+import React, {useState} from "react";
 import {connect} from "react-redux";
 import { auth } from '../../store/actions/authActions';
-import Redirect from "react-router-dom/es/Redirect";
+import { Redirect } from "react-router-dom";
 
 const SignIn = ({isAuthenticated, auth}) => {
+    const [login, setLogin] = useState('');
+    const [password, setPassword] = useState('');
+
     if (isAuthenticated) {
         return (
             <Redirect to={'/'} />
         )
     }
 
+
     return (
         <React.Fragment>
-            <p>Click!</p>
-            <button onClick={() => auth()}>Sign In</button>
+            <div>
+                <p>Login</p>
+                <input type="text" onChange={e => setLogin(e.target.value)} value={login} />
+            </div>
+            <div>
+                <p>Password:</p>
+                <input type="password" onChange={e => setPassword(e.target.value)} value={password} />
+            </div>
+            <p>
+                <button onClick={() => auth(login, password)}>Sign In</button>
+            </p>
         </React.Fragment>
     );
 }

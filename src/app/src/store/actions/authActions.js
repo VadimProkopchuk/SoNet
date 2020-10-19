@@ -1,16 +1,17 @@
-import {AUTH_LOGOUT, AUTH_SUCCESS} from "./actionTypes";
+import {AUTH_LOGOUT, UPDATE_TOKEN} from "./actionTypes";
+import storage from "../../storage";
+import accountApiClient from "../../clients/account/accountApiClient";
+import {getCurrentUser} from "./userActions";
 
 export function auth(email, password) {
     return async dispatch => {
-        // todo: connect to API
+        const response = await accountApiClient.auth(email, password);
+        const token = response.data.token;
+        const expiresIn = response.data.expiresIn;
+        const expirationDate = new Date(new Date().getTime() + expiresIn*1000).toISOString();
 
-        console.log('auth dispatch')
-
-        const token = '123';
-        const expiresIn = 600;
-
-        localStorage.setItem('token', token);
-        localStorage.setItem('expirationDate', new Date(new Date().getTime() + expiresIn*1000).toISOString())
+        storage.token.set(token);
+        storage.expirationDate.set(expirationDate);
 
         dispatch(authSuccess(token));
         dispatch(autoLogout(expiresIn));
@@ -18,19 +19,26 @@ export function auth(email, password) {
 }
 
 export function authSuccess(token) {
+    return dispatch => {
+        dispatch(updateToken(token));
+        dispatch(getCurrentUser());
+    }
+}
+
+export function updateToken(token) {
     return {
         token,
-        type: AUTH_SUCCESS
+        type: UPDATE_TOKEN
     }
 }
 
 export function autoAuth() {
     return dispatch => {
-        const token = localStorage.getItem('token');
+        const token = storage.token.get();
         if (!token) {
             dispatch(logout());
         } else {
-            const expirationDate = new Date(localStorage.getItem('expirationDate'));
+            const expirationDate = new Date(storage.expirationDate.get());
             if (expirationDate <= new Date()) {
                 dispatch(logout());
             } else {
@@ -49,8 +57,9 @@ export function autoLogout(expiresIn) {
 }
 
 export function logout() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('expirationDate');
+    storage.token.remove();
+    storage.expirationDate.remove();
+
     return {
         type: AUTH_LOGOUT
     }

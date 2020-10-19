@@ -1,0 +1,15 @@
+const authorize = () => {
+    return (req, res, next) => {
+        const { user } = req.context;
+
+        if (!user) {
+            res.status(401).json({
+                message: "Unauthorized"
+            });
+        } else {
+            next();
+        }
+    }
+};
+
+module.exports = authorize;
