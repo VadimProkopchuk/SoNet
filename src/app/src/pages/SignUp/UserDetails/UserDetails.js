@@ -90,8 +90,8 @@ export class UserDetails extends Component {
                         <TextField
                             placeholder="Enter Your Email"
                             label="Email"
-                            onChange={handleChange('email')}
-                            defaultValue={values.email}
+                            /*onChange={handleChange('email')}
+                            defaultValue={values.email}*/
                             margin="normal"
                             fullWidth
                         />
