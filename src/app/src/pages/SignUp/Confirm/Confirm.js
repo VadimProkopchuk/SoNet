@@ -29,7 +29,7 @@ export class Confirm extends Component {
     };
 
     render() {
-        const { values:{firstName, lastName, email, occupation, city, bio}} = this.props;
+        const { values:{firstName, lastName, email, password, city, bio}} = this.props;
         return (
             <ThemeProvider theme={formTheme}>
                 <>
@@ -40,24 +40,24 @@ export class Confirm extends Component {
                     >
                         <Typography style={{textAlign: 'center',}}> Data Confirmation </Typography>
                         <List>
-                            <ListItem>
+                           {/* <ListItem>
                                 <ListItemText primary="First Name" secondary={firstName} />
                             </ListItem>
                             <ListItem>
                                 <ListItemText primary="Last Name" secondary={lastName} />
-                            </ListItem>
+                            </ListItem>*/}
                             <ListItem>
                                 <ListItemText primary="Email" secondary={email} />
                             </ListItem>
                             <ListItem>
-                                <ListItemText primary="Occupation" secondary={occupation} />
+                                <ListItemText primary="Password" secondary={password} />
                             </ListItem>
-                            <ListItem>
+                           {/* <ListItem>
                                 <ListItemText primary="City" secondary={city} />
                             </ListItem>
                             <ListItem>
                                 <ListItemText primary="Bio" secondary={bio} />
-                            </ListItem>
+                            </ListItem>*/}
                         </List>
                         <br />
                         <ButtonGroup color="primary" variant="contained" fullWidth>

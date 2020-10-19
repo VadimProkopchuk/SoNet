@@ -36,17 +36,17 @@ export class PersonalDetails extends Component {
                         fullWidth
                         // maxWidth='sm'
                     >
-                        <Typography style={{textAlign: 'center',}}> Enter Your Personal Details </Typography>
+                 {/*       <Typography style={{textAlign: 'center',}}> Enter Your Personal Details </Typography>
                         <TextField
-                            placeholder="Enter Your Occupation"
+                            placeholder="Enter Your Password"
                             label="Occupation"
-                            onChange={handleChange('occupation')}
-                            defaultValue={values.occupation}
+                            onChange={handleChange('password')}
+                            defaultValue={values.password}
                             margin="normal"
                             fullWidth
                         />
-                        <br />
-                        <TextField
+                        <br />*/}
+                       {/* <TextField
                             placeholder="Enter Your City"
                             label="City"
                             onChange={handleChange('city')}
@@ -63,7 +63,7 @@ export class PersonalDetails extends Component {
                             margin="normal"
                             fullWidth
                         />
-                        <br />
+                        <br />*/}
                         <ButtonGroup color="primary" variant="contained" fullWidth>
                             <Button
                                 onClick={this.back}
