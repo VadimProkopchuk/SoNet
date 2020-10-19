@@ -7,6 +7,7 @@ import {Typography} from "@material-ui/core";
 
 
 
+
  const formTheme = createMuiTheme({
     palette: {
         primary: {
@@ -14,7 +15,7 @@ import {Typography} from "@material-ui/core";
         }
     }
 })
-export class FormUserDetails extends Component {
+export class UserDetails extends Component {
     continue = e => {
         e.preventDefault();
         this.props.nextStep();
@@ -39,6 +40,7 @@ export class FormUserDetails extends Component {
                             margin="normal"
                             fullWidth
                         />
+                        {/*error message*/}
                         <br />
                         <TextField
                             placeholder="Enter Your Last Name"
@@ -48,6 +50,7 @@ export class FormUserDetails extends Component {
                             margin="normal"
                             fullWidth
                         />
+                        {/*error message*/}
                         <br />
                         <TextField
                             placeholder="Enter Your Email"
@@ -57,6 +60,7 @@ export class FormUserDetails extends Component {
                             margin="normal"
                             fullWidth
                         />
+                        {/*error message*/}
                         <br />
                         <Button
                             variant="contained"
@@ -70,4 +74,4 @@ export class FormUserDetails extends Component {
     }
 }
 
-export default FormUserDetails;
+export default UserDetails;

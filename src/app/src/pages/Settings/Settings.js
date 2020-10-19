@@ -1,8 +1,11 @@
 import React from "react";
-import UserForm from "../UserForm/UserForm";
+import Loader from "../../components/UI/Loader/Loader";
 
 export default () => (
     <React.Fragment>
-        <UserForm/>
+        <h3>Settings page</h3>
+        <h5>Loader example</h5>
+        <Loader />
     </React.Fragment>
 );
+

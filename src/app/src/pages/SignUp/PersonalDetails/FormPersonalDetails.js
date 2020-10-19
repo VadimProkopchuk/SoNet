@@ -15,7 +15,7 @@ const formTheme = createMuiTheme({
     }
 })
 
-export class FormPersonalDetails extends Component {
+export class PersonalDetails extends Component {
     continue = e => {
         e.preventDefault();
         this.props.nextStep();
@@ -79,4 +79,4 @@ export class FormPersonalDetails extends Component {
     }
 }
 
-export default FormPersonalDetails;
+export default PersonalDetails;

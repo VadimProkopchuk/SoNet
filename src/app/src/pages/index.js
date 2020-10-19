@@ -4,7 +4,7 @@ import Profile from "./Profile/Profile";
 import Settings from "./Settings/Settings";
 import NotFound from "./NotFound/NotFound";
 import SignIn from "./SignIn/SignIn";
-import SignUp from "./SignUp/SignUp";
+import SignUp from "./SignUp/SignUp/SignUp";
 
 export {
     Contacts,
