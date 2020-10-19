@@ -54,7 +54,7 @@ export class UserDetails extends Component {
                         />
                         error message
                         <br />*/}
-                  {/*      <TextField
+                        <TextField
                             placeholder="Enter Your Email"
                             label="Email"
                             onChange={handleChange('email')}
@@ -62,7 +62,7 @@ export class UserDetails extends Component {
                             margin="normal"
                             fullWidth
                         />
-                        error message*/}
+
                         <br />
                         <Button
                             variant="contained"
