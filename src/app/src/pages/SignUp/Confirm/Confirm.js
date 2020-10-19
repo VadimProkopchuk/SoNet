@@ -18,23 +18,21 @@ const formTheme = createMuiTheme({
 })
 
 export class Confirm extends Component {
-    continue = e => {
-        e.preventDefault();
+    continue() {
+        // Send to request to API
         this.props.nextStep();
     };
 
-    back = e => {
-        e.preventDefault();
-        this.props.prevStep();
-    };
-
     render() {
-        const { values:{firstName, lastName, email, password, city, bio}} = this.props;
+        // TODO: USE REDUX
+        // const { values:{firstName, lastName, email, password, city, bio}} = this.props;
+        const email = "test";
+        const password = "pass"
         return (
             <ThemeProvider theme={formTheme}>
                 <>
                     <Dialog
-                        open
+                        open={true}
                         fullWidth
                         // maxWidth='sm'
                     >
@@ -62,7 +60,7 @@ export class Confirm extends Component {
                         <br />
                         <ButtonGroup color="primary" variant="contained" fullWidth>
                             <Button
-                                onClick={this.back}
+                                onClick={this.props.prevStep}
                             >Back</Button>
                             <Button
                                 onClick={this.continue}

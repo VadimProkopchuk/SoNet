@@ -15,15 +15,8 @@ const formTheme = createMuiTheme({
 
 
 export class Success extends Component {
-    continue = e => {
-        e.preventDefault();
-        // PROCESS FORM //
-        this.props.nextStep();
-    };
-
-    back = e => {
-        e.preventDefault();
-        this.props.prevStep();
+    compo() {
+        // send request to API
     };
 
     render() {
@@ -35,7 +28,7 @@ export class Success extends Component {
                         fullWidth
                         maxWidth='sm'
                     >
-                        <Typography color="primary" style={{textAlign: 'center',}}>Success!</Typography>
+                        <Typography color="primary" style={{textAlign: 'center'}}>Success!</Typography>
                         <h1>Thank You For Your Submission</h1>
                         <p>You will get an email with further instructions.</p>
                     </Dialog>

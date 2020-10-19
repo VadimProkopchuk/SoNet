@@ -115,7 +115,13 @@ const Profile = () => {
                                 <CardActions>
 
                                     <ButtonGroup color="primary">
-                                        <Tooltip TransitionComponent={Zoom} title='Say "Hi!"'>
+                                        <Button size="small">
+                                            Write Message
+                                        </Button>
+                                        <Button size="small" >
+                                            Add to Contacts
+                                        </Button>
+                                        {/*<Tooltip TransitionComponent={Zoom} title='Say "Hi!"'>
                                             <Button size="small">
                                                 Write Message
                                             </Button>
@@ -125,7 +131,7 @@ const Profile = () => {
                                             <Button size="small" >
                                                 Add to Contacts
                                             </Button>
-                                        </Tooltip>
+                                        </Tooltip> */ }
                                     </ButtonGroup>
                                 </CardActions>
                             </Card>
