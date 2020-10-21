@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+import {connect} from 'react-redux';
 import Button from '@material-ui/core/Button';
 import {Typography} from "@material-ui/core";
 
 import is from 'is_js';
 import Input from "@material-ui/core/Input";
+import {updateSignUpData} from "../../../store/actions/signUpActions";
 
 
 
@@ -18,8 +19,8 @@ import Input from "@material-ui/core/Input";
         }
     }
 })
-export class UserDetails extends Component {
 
+class UserDetails extends Component {
 
     state = {
         formControls: {
@@ -52,6 +53,13 @@ export class UserDetails extends Component {
                  bio: '',*/
             }
         },
+    }
+
+    componentDidMount() {
+        const formControls = {...this.state.formControls};
+        formControls.email.value = this.props.email;
+        formControls.password.value = this.props.password;
+        this.setState({formControls});
     }
 
     render() {
@@ -87,20 +95,20 @@ export class UserDetails extends Component {
                         />
                         error message
                         <br />*/}
-                        <TextField
+               {/*         <TextField
                             placeholder="Enter Your Email"
                             label="Email"
                             /*onChange={handleChange('email')}
-                            defaultValue={values.email}*/
+                            defaultValue={values.email}
                             margin="normal"
                             fullWidth
-                        />
+                        />*/}
 
                         <br />
                         <Button
                             variant="contained"
                             color="primary"
-                            onClick={this.continue}
+                            onClick={this.continue.bind(this)}
                         >Continue</Button>
                     </Dialog>
                 </>
@@ -138,8 +146,12 @@ export class UserDetails extends Component {
     }
 
     continue() {
+        const email = this.state.formControls.email.value;
+        const password = this.state.formControls.password.value;
+        this.props.updateSignUpData(email, password);
+        this.props.nextStep();
         //action type
-        // actiob
+        // action
         // process data
         // wrap continue func
         //map to props + another func
@@ -169,4 +181,16 @@ export class UserDetails extends Component {
     };
 }
 
-export default UserDetails;
+const mapStateToProps = state => {
+    return {
+        email: state.signUp.email,
+        password: state.signUp.password,
+    };
+}
+const mapDispatchToProps = dispatch => {
+    return {
+        updateSignUpData: (email, password) => dispatch(updateSignUpData(email, password)),
+    }
+ }
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserDetails);

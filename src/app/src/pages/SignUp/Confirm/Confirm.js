@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import Dialog from '@material-ui/core/Dialog';
 import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -7,6 +8,7 @@ import ButtonGroup from "@material-ui/core/ButtonGroup";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import {nextSignUpStep} from "../../../store/actions/signUpActions";
 
 
 const formTheme = createMuiTheme({
@@ -22,12 +24,13 @@ export class Confirm extends Component {
         // Send to request to API
         this.props.nextStep();
     };
+    
 
     render() {
         // TODO: USE REDUX
         // const { values:{firstName, lastName, email, password, city, bio}} = this.props;
-        const email = "test";
-        const password = "pass"
+        const email = this.props.email;
+        const password = this.props.password;
         return (
             <ThemeProvider theme={formTheme}>
                 <>
@@ -63,7 +66,7 @@ export class Confirm extends Component {
                                 onClick={this.props.prevStep}
                             >Back</Button>
                             <Button
-                                onClick={this.continue}
+                                onClick={this.continue.bind(this)}
                             >Confirm & Continue</Button>
                         </ButtonGroup>
                     </Dialog>
@@ -73,4 +76,17 @@ export class Confirm extends Component {
     }
 }
 
-export default Confirm;
+const mapStateToProps = state => {
+    return {
+        email: state.signUp.email,
+        password: state.signUp.password,
+    };
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        nextStep: () => dispatch(nextSignUpStep()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Confirm);

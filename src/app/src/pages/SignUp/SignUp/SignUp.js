@@ -2,7 +2,6 @@ import React, {useEffect} from "react";
 import { connect } from "react-redux";
 
 import UserDetails from "../UserDetails/UserDetails";
-import PersonalDetails from "../PersonalDetails/FormPersonalDetails";
 import Confirm from "../Confirm/Confirm";
 import Success from "../Success/Success";
 import {nextSignUpStep, prevSignUpStep, resetSignUp} from "../../../store/actions/signUpActions";
@@ -38,8 +37,8 @@ const SignUp = (props) => {
 
 const mapStateToProps = state => {
      return {
-         step: state.signUp.step
-     }
+         step: state.signUp.step,
+     };
 }
 
 const mapDispatchToProps = dispatch => {
@@ -47,7 +46,7 @@ const mapDispatchToProps = dispatch => {
          nextStep: () => dispatch(nextSignUpStep()),
          prevStep: () => dispatch(prevSignUpStep()),
          resetStep: () => dispatch(resetSignUp()),
-     }
+     };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

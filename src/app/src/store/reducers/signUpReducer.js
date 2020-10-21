@@ -1,4 +1,4 @@
-import {NEXT_SIGN_UP_STEP, PREV_SIGN_UP_STEP, RESET_SIGN_UP} from "../actions/actionTypes";
+import {NEXT_SIGN_UP_STEP, PREV_SIGN_UP_STEP, RESET_SIGN_UP, UPDATE_SIGN_UP_DATA} from "../actions/actionTypes";
 
 const initialState = {
     step: 1,
@@ -29,6 +29,13 @@ export default function signUpReducer(state = initialState, action) {
             };
         }
 
+        case UPDATE_SIGN_UP_DATA: {
+            return {
+                ...state,
+                email: action.payload.email,
+                password: action.payload.password,
+            }
+        }
         default: return state;
     }
 }
