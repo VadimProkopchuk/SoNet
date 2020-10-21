@@ -155,13 +155,6 @@ class UserDetails extends Component {
         // process data
         // wrap continue func
         //map to props + another func
-
-
-
-        // const email = this.state.formControls.email.value,
-        // const password = this.state.formControls.password.value,
-        // dispatch(changeUserData(email, password))
-        //this.props.nextStep();
     };
 
 
@@ -169,13 +162,14 @@ class UserDetails extends Component {
         return Object.keys(this.state.formControls).map((controlName, index) => {
             const control = this.state.formControls[controlName]
             return (
-                <Input
-                    key={controlName + index}
-                    type={control.type}
-                    value={control.value}
-                    label={control.label}
-                    onChange={event => {this.onChangeHandler(event, controlName)}}
-                />
+                    <Input
+                        key={controlName + index}
+                        type={control.type}
+                        value={control.value}
+                        label={control.label}
+                        onChange={event => {this.onChangeHandler(event, controlName)}}
+                        placeholder={`Enter Your ${control.label}`}
+                    />
             )
         })
     };
