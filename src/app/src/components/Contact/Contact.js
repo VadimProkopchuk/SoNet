@@ -1,13 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import CardActions from "@material-ui/core/CardActions";
-import Button from "@material-ui/core/Button";
-import Card from "@material-ui/core/Card";
+import {Card} from "primereact/card";
+import {Button} from "primereact/button";
 
 export default function Contact({ user }) {
     const history = useHistory();
@@ -15,26 +9,22 @@ export default function Contact({ user }) {
         history.push("/" + user.id);
     }
 
+    const header = (
+        <img alt={user.full_name} src={user.avatarUrl} />
+    );
+    const footer = (
+        <div className="p-d-flex p-justify-center">
+            <Button label="Message" icon="pi pi-comment" />
+        </div>
+    );
+
     return (
-        <Card>
-            <CardActionArea onClick={openProfile}>
-                <CardMedia
-                    component="img"
-                    alt={user.full_name}
-                    height="200"
-                    image={user.avatarUrl}
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="h4">
-                        {user.full_name}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-            <CardActions>
-                <Button size="small" color="primary" fullWidth>
-                    Message
-                </Button>
-            </CardActions>
+        <Card
+            title={user.full_name}
+            className="ui-card-shadow"
+            footer={footer}
+            header={header}
+            onClick={openProfile}>
         </Card>
     )
 }

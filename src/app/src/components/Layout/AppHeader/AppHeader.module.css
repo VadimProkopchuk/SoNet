@@ -1,0 +1,21 @@
+
+
+.TopBar {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 75px;
+    background-color: var(--surface-a);
+}
+
+.ApplicationName {
+    color: var(--text-color-secondary);
+}
+
+.TopBar-Left {
+    width: 20%;
+}
+
+.TopBar-Right {
+    width: 80%;
+}

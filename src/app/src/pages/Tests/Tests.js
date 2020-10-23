@@ -32,6 +32,12 @@ const Tests = (props) => {
             <pre>
                 {JSON.stringify(props.user, null, 2) }
             </pre>
+            <pre>
+                {JSON.stringify(props.user, null, 2) }
+            </pre>
+            <pre>
+                {JSON.stringify(props.user, null, 2) }
+            </pre>
 
             <h3>Test chat. Enter your message:</h3>
 

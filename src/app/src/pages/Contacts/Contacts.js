@@ -1,5 +1,4 @@
 import React, {useEffect} from "react";
-import Grid from "@material-ui/core/Grid";
 import Contact from "../../components/Contact/Contact";
 import { connect } from "react-redux";
 import {fetchAllContacts} from "../../store/actions/userActions";
@@ -9,15 +8,17 @@ const Contacts = (props) => {
         props.fetchContacts()
     });
 
-    const contacts = props.contacts.map(user => (
-        <Grid item xs={2} key={user.id}>
-            <Contact user={user} />
-        </Grid>
-    ));
-
     return (
-        <Grid container spacing={1}>{contacts}</Grid>
-    )
+        <div className="p-grid">
+            {
+                props.contacts.map(contact => (
+                    <div className="p-col-2" key={contact.id}>
+                        <Contact user={contact} />
+                    </div>
+                ))
+            }
+        </div>
+    );
 }
 
 const mapStateToProps = state => ({
