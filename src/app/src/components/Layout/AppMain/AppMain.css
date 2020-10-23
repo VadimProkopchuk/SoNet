@@ -1,0 +1,13 @@
+.p-scrollpanel .p-scrollpanel-wrapper {
+    border-right: 10px solid var(--surface-b) !important;
+}
+
+.p-scrollpanel .p-scrollpanel-bar {
+    background-color: var(--primary-color) !important;
+    opacity: 1;
+    transition: background-color .2s;
+}
+
+.p-scrollpanel .p-scrollpanel-bar:hover {
+    background-color: #007ad9;
+}
