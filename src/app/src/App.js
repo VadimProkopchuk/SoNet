@@ -8,7 +8,7 @@ import PrimeReact from 'primereact/utils';
 import Layout from "./components/Layout/Layout";
 import rootReducer from "./store/reducers/rootReducer";
 
-import 'primereact/resources/themes/mdc-dark-indigo/theme.css';
+import 'primereact/resources/themes/vela-orange/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.min.css';

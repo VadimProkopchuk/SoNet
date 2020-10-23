@@ -21,7 +21,7 @@ const SideMenu = () => {
                         "p-button-text",
                         "p-text-left",
                         route.location === location.pathname
-                            ? "p-button-secondary"
+                            ? "p-button"
                             : "p-button-plain"
                     ];
 

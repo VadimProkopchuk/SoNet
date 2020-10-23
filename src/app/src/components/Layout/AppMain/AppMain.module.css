@@ -1,9 +1,8 @@
 .SideMenuContainer {
-    min-height: calc(100vh - 75px);
+    height: 100vh;
+    position: fixed;
     padding-top: 0;
     padding-left: 0;
-    background-color: #3e464c;
-    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-    -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    background-color: var(--surface-b);
+    box-shadow: 0 2px 5px 0 var(--surface-f);
 }

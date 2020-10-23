@@ -5,7 +5,6 @@ import {Contacts, Messages, NotFound, Profile, Settings, SignIn, SignUp} from ".
 import SideMenu from "../SideMenu";
 import Logout from "../../Logout/Logout";
 import Tests from "../../../pages/Tests/Tests";
-import {ScrollPanel} from "primereact/scrollpanel";
 
 const AppMain = ({isAuthenticated}) => {
     if (!isAuthenticated) {
@@ -24,7 +23,7 @@ const AppMain = ({isAuthenticated}) => {
                 <SideMenu />
             </div>
 
-            <div className="p-col-10">
+            <div className="p-offset-2 p-col-10">
                 <Switch>
                     <Route exact path="/" component={Profile} />
                     <Route path="/messages" component={Messages} />
