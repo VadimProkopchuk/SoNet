@@ -6,7 +6,7 @@ import {fetchAllContacts} from "../../store/actions/userActions";
 const Contacts = (props) => {
     useEffect(() => {
         props.fetchContacts()
-    });
+    }, []);
 
     return (
         <div className="p-grid">
