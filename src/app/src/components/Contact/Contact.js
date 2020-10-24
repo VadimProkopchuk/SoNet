@@ -2,25 +2,30 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import {Card} from "primereact/card";
 import {Button} from "primereact/button";
+import CircleAvatar from "../UI/CircleAvatar/CircleAvatar";
 
 export default function Contact({ user }) {
     const history = useHistory();
     const openProfile = () => {
-        history.push("/" + user.id);
+        history.push("/profile/" + user.id);
     }
 
     const header = (
-        <img alt={user.full_name} src={user.avatarUrl} />
+        <div className="p-d-flex">
+            <CircleAvatar src={user.avatarUrl} alt={user.full_name} size={'4rem'} />
+            <Button label={user.full_name} className="p-button p-button-text p-text-left" onClick={openProfile} />
+        </div>
     );
     const footer = (
-        <div className="p-d-flex p-justify-center">
-            <Button label="Message" icon="pi pi-comment" />
+        <div className="p-d-flex p-justify-around">
+            <Button icon="pi pi-user" className="p-button-rounded p-button-info" onClick={openProfile} />
+            <Button icon="pi pi-times" className="p-button-rounded p-button-danger" />
+            <Button icon="pi pi-check" className="p-button-rounded" />
         </div>
     );
 
     return (
         <Card
-            title={user.full_name}
             className="ui-card-shadow"
             footer={footer}
             header={header}

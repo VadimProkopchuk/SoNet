@@ -8,6 +8,7 @@ export default {
         CURRENT: '/user'
     },
     USERS: {
-        ALL: '/users'
+        ALL: '/users',
+        GET_BY_ID: id => `/users/${id}`
     }
 }

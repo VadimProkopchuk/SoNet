@@ -29,6 +29,7 @@ const AppMain = ({isAuthenticated}) => {
                 <ScrollPanel className={classes.CustomBar}>
                     <Switch>
                         <Route exact path="/" component={Profile}/>
+                        <Route path="/profile/:id" component={Profile}/>
                         <Route path="/messages" component={Messages}/>
                         <Route path="/contacts" component={Contacts}/>
                         <Route path="/settings" component={Settings}/>
