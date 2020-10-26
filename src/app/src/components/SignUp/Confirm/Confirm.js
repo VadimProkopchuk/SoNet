@@ -1,17 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {nextSignUpStep, prevSignUpStep} from "../../../store/actions/signUpActions";
 import {Button} from "primereact/button";
+import {InputText} from "primereact/inputtext";
 
 const Confirm = (props) => {
+    const [code, setCode] = useState('');
+
     return (
         <div className="p-fluid">
             <div className="p-field">
-                <label className="p-text-bold">Email: <span className="p-text-light">{props.email}</span></label>
+                <p>Please check your email <i>{props.email}</i> and enter the verification code below to confirm your account.</p>
             </div>
             <div className="p-field">
-                <label className="p-text-bold">Password: <span className="p-text-light">{props.password}</span></label>
+                <label htmlFor="code">Verification Code:</label>
+                <InputText id="code" type="text" onChange={e => setCode(e.target.value)} value={code} autoComplete={'off'} />
             </div>
+
+            <div className="p-field">
+                <p>If <i>{props.email}</i> is not your email address, please go back and enter the correct one.</p>
+                <p>If you haven't received our email in 15 minutes, please check your spam folder.</p>
+            </div>
+
             <div className="p-d-flex p-justify-between">
                 <div className="p-col-4">
                     <Button type="button"

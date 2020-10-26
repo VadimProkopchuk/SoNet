@@ -9,7 +9,6 @@ const Success = () => {
     return (
         <div className="p-fluid">
             <div className="p-field">
-                <h1>Thank you for your submission!</h1>
                 <p>You will get an email with further instructions.</p>
             </div>
             <div className="p-d-flex p-justify-end">

@@ -17,8 +17,14 @@ const SignUp = (props) => {
             ? ( <Confirm nextStep={props.nextStep} prevStep={props.prevStep} /> )
             : ( <Success prevStep={props.prevStep} /> );
 
+    const header = props.step === 1
+        ? "Sign Up"
+        : props.step === 2
+            ? "Almost there ..."
+            : "Thank you for your submission!";
+
     return (
-        <Dialog header="Sign Up"
+        <Dialog header={header}
                 style={{ width: '40vw' }}
                 onHide={() => {}}
                 visible={true}

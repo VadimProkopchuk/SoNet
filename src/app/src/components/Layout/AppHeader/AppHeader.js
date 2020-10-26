@@ -44,7 +44,7 @@ const AppHeader = ({isAuthenticated}) => {
             <div className="p-col-2 p-d-flex p-justify-center p-align-center">
                 <img alt="logo" src={process.env.PUBLIC_URL + '/static/images/logo/logo.jpg'} height="50" className="p-mr-2"/>
                 <Button label="SoNet Application"
-                        className="p-button-text p-button"
+                        className="p-button-info p-button-text"
                         onClick={() => routes.toMain()}
                 />
             </div>

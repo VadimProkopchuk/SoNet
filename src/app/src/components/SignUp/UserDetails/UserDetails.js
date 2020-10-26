@@ -29,7 +29,7 @@ const UserDetails = (props) => {
             <div className="p-d-flex p-justify-end">
                 <Button
                     type="button"
-                    label="Next"
+                    label="Create Account"
                     classes="p-button"
                     onClick={() => nextStep()}
                 />
