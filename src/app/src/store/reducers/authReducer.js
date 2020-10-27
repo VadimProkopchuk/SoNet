@@ -1,7 +1,8 @@
-import {AUTH_LOGOUT, UPDATE_TOKEN} from "../actions/actionTypes";
+import {AUTH_LOADING, AUTH_LOGOUT, UPDATE_TOKEN} from "../actions/actionTypes";
 
 const initialState = {
-    token: null
+    token: null,
+    isLoading: false
 };
 
 export default function authReducer(state = initialState, action) {
@@ -18,6 +19,13 @@ export default function authReducer(state = initialState, action) {
                 ...state,
                 token: null
             };
+        }
+
+        case AUTH_LOADING: {
+            return {
+                ...state,
+                isLoading: action.isLoading
+            }
         }
 
         default: return state;
